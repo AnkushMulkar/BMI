@@ -39,7 +39,7 @@ def get_yoga_recommendation(bmi_category):
 def get_food_recommendation(bmi_category):
     food_recommendations = {
         "Underweight": "Consume calorie-dense foods like nuts, avocados, and full-fat dairy.",
-        "Normal weight": "Maintain a balanced diet with a variety of fruits, vegetables, and lean proteins.",
+        "Normal weight": "Maintain a balanced diet with a variety of fruits, vegetables, and plant-based proteins.",
         "Overweight": "Focus on portion control and reduce intake of sugary and fatty foods.",
         "Obese": "Choose nutrient-dense foods and limit processed and high-calorie foods."
     }
@@ -102,9 +102,12 @@ def main():
     # Display the profile image in the sidebar
     st.sidebar.image(profile_image, use_column_width=True)
 
-     # Add background music from the current directory
+    # Add background music from the current directory
     base_path = os.path.dirname(os.path.abspath(__file__))
     audio_file_path = os.path.join(base_path, "music.mp3")
+    audio_file = open(audio_file_path, "rb")
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
     weight_kg = st.number_input("Enter your weight in kg", min_value=1.0, step=0.1)
     height_ft = st.number_input("Enter your height in feet", min_value=1, step=1)
