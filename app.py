@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageDraw, ImageOps
 
 def calculate_bmi(weight_kg, height_ft, height_in, gender):
     height_inch_total = height_ft * 12 + height_in
