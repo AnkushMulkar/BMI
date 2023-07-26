@@ -10,20 +10,51 @@ def calculate_bmi(weight_kg, height_ft, height_in, gender):
     return bmi
 
 def get_bmi_category(bmi):
-    # Your implementation of BMI categories
+    if bmi < 18.5:
+        return "Underweight"
+    elif 18.5 <= bmi < 24.9:
+        return "Normal weight"
+    elif 25 <= bmi < 29.9:
+        return "Overweight"
+    else:
+        return "Obese"
 
 def get_exercise_recommendation(bmi_category):
-    # Your implementation of exercise recommendations
+    exercise_recommendations = {
+        "Underweight": "Try strength training exercises to build muscle mass.",
+        "Normal weight": "Continue doing regular exercises to maintain a healthy weight.",
+        "Overweight": "Incorporate cardio exercises like running, cycling, or swimming.",
+        "Obese": "Focus on low-impact exercises like walking and gradually increase intensity."
+    }
+    return exercise_recommendations[bmi_category]
 
 def get_yoga_recommendation(bmi_category):
-    # Your implementation of yoga recommendations
+    yoga_recommendations = {
+        "Underweight": "Practice yoga poses that promote digestion and increase appetite.",
+        "Normal weight": "Maintain your regular yoga practice for overall well-being.",
+        "Overweight": "Engage in yoga poses that help improve metabolism and digestion.",
+        "Obese": "Try yoga poses that focus on flexibility and gentle movements."
+    }
+    return yoga_recommendations[bmi_category]
 
 def get_food_recommendation(bmi_category):
-    # Your implementation of food recommendations
+    food_recommendations = {
+        "Underweight": "Consume calorie-dense foods like nuts, avocados, and full-fat dairy.",
+        "Normal weight": "Maintain a balanced diet with a variety of fruits, vegetables, and lean proteins.",
+        "Overweight": "Focus on portion control and reduce intake of sugary and fatty foods.",
+        "Obese": "Choose nutrient-dense foods and limit processed and high-calorie foods."
+    }
+    return food_recommendations[bmi_category]
 
 # Function to crop image in circular shape
 def crop_to_circle(image):
-    # Your implementation of the crop function
+    width, height = image.size
+    mask = Image.new("L", (width, height), 0)
+    draw = ImageDraw.Draw(mask)
+    draw.ellipse((0, 0, width, height), fill=255)
+    result = ImageOps.fit(image, mask.size, centering=(0.5, 0.5))
+    result.putalpha(mask)
+    return result
 
 # Streamlit App
 def main():
@@ -41,8 +72,6 @@ def main():
     audio_file_path = os.path.join(base_path, "music.mp3")
     audio_file = open(audio_file_path, "rb")
     audio_bytes = audio_file.read()
-
-    # Use IPython to automatically play audio without user interaction
     st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
     weight_kg = st.number_input("Enter your weight in kg", min_value=1.0, step=0.1)
