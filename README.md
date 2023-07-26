@@ -21,11 +21,10 @@ pip install -r requirements.txt
 
 3. Place your profile picture named `a.png` and background music named `music.mp3` in the same directory as the `app.py` script.
 
-Run the Streamlit app:
-
-
+4. Run the Streamlit app:
+'''
 streamlit run app.py
-
+'''
 Access the app in your web browser at http://localhost:8501.
 
 Enter your weight in kilograms, height in feet and inches, and select your gender.
