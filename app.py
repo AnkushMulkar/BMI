@@ -72,7 +72,7 @@ def main():
     audio_file_path = os.path.join(base_path, "music.mp3")
     audio_file = open(audio_file_path, "rb")
     audio_bytes = audio_file.read()
-    st.audio(audio_bytes, format="audio/mp3", start_time=0,autoplay=True)
+    st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
     weight_kg = st.number_input("Enter your weight in kg", min_value=1.0, step=0.1)
     height_ft = st.number_input("Enter your height in feet", min_value=1, step=1)
