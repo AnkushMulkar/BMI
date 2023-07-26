@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image, ImageDraw, ImageOps
 import os
-from IPython.display import Audio
+
 
 def calculate_bmi(weight_kg, height_ft, height_in, gender):
     height_inch_total = height_ft * 12 + height_in
