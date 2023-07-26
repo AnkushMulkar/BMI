@@ -74,10 +74,10 @@ def get_pranayama(bmi_category):
 
 def get_food_list(bmi_category):
     food_list = {
-        Underweight: ["Almonds", "Avocado", "Greek yogurt", "Quinoa", "Lentils"]
-        Normal weight: ["Apples", "Broccoli", "Oats", "Spinach", "Chickpeas"]
-        Overweight: ["Berries", "Cauliflower", "Brown rice", "Kale", "Black beans"]
-        Obese: ["Chia seeds", "Lentils", "Sweet potatoes", "Beets", "Quinoa"]
+        "Underweight": ["Almonds", "Avocado", "Greek yogurt", "Quinoa", "Lentils"],
+        "Normal weight": ["Apples", "Broccoli", "Oats", "Spinach", "Chickpeas"],
+        "Overweight": ["Berries", "Cauliflower", "Brown rice", "Kale", "Black beans"],
+        "Obese": "Chia seeds", "Lentils", "Sweet potatoes", "Beets", "Quinoa"]
     }
     return food_list[bmi_category]
 
