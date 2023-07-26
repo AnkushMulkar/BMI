@@ -20,7 +20,6 @@ pip install -r requirements.txt
 ```
 
 3. Place your profile picture named `a.png` and background music named `music.mp3` in the same directory as the `app.py` script.
-```
 
 Run the Streamlit app:
 
