@@ -47,6 +47,23 @@ def get_food_recommendation(bmi_category):
 def main():
     st.title("BMI Calculator and Recommendations")
 
+    # Function to crop image in circular shape
+def crop_to_circle(image):
+    width, height = image.size
+    mask = Image.new("L", (width, height), 0)
+    draw = ImageDraw.Draw(mask)
+    draw.ellipse((0, 0, width, height), fill=255)
+    result = ImageOps.fit(image, mask.size, centering=(0.5, 0.5))
+    result.putalpha(mask)
+    return result
+
+# Loading and cropping the user's profile image
+profile_image = Image.open("a.png")
+profile_image = crop_to_circle(profile_image)
+
+# Displaying the cropped profile image
+st.sidebar.image(profile_image, use_column_width=True)
+
     weight_kg = st.number_input("Enter your weight in kg", min_value=1.0, step=0.1)
     height_ft = st.number_input("Enter your height in feet", min_value=1, step=1)
     height_in = st.number_input("Enter the remaining height in inches", min_value=0, max_value=11, step=1)
