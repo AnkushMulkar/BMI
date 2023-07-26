@@ -58,6 +58,12 @@ def crop_to_circle(image):
 def main():
     st.title("BMI Calculator and Recommendations")
 
+    # Add background music
+    audio_file = open("background_music.mp3", "rb")
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format="audio/mp3", start_time=0)
+
+
     # Load the user's profile image
     profile_image = Image.open("a.png")
     profile_image = crop_to_circle(profile_image)
