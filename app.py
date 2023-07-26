@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image, ImageDraw, ImageOps
+import os
 
 def calculate_bmi(weight_kg, height_ft, height_in, gender):
     height_inch_total = height_ft * 12 + height_in
@@ -58,18 +59,19 @@ def crop_to_circle(image):
 def main():
     st.title("BMI Calculator and Recommendations")
 
-    # Add background music
-    audio_file = open("music.mp3", "rb")
-    audio_bytes = audio_file.read()
-    st.audio(audio_bytes, format="audio/mp3", start_time=0)
-
-
     # Load the user's profile image
     profile_image = Image.open("a.png")
     profile_image = crop_to_circle(profile_image)
 
     # Display the profile image in the sidebar
     st.sidebar.image(profile_image, use_column_width=True)
+
+    # Add background music from the current directory
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    audio_file_path = os.path.join(base_path, "music.mp3")
+    audio_file = open(audio_file_path, "rb")
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
     weight_kg = st.number_input("Enter your weight in kg", min_value=1.0, step=0.1)
     height_ft = st.number_input("Enter your height in feet", min_value=1, step=1)
