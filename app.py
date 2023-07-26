@@ -102,6 +102,10 @@ def main():
     # Display the profile image in the sidebar
     st.sidebar.image(profile_image, use_column_width=True)
 
+     # Add background music from the current directory
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    audio_file_path = os.path.join(base_path, "music.mp3")
+
     weight_kg = st.number_input("Enter your weight in kg", min_value=1.0, step=0.1)
     height_ft = st.number_input("Enter your height in feet", min_value=1, step=1)
     height_in = st.number_input("Enter the remaining height in inches", min_value=0, max_value=11, step=1)
