@@ -59,7 +59,7 @@ def main():
     st.title("BMI Calculator and Recommendations")
 
     # Add background music
-    audio_file = open("background_music.mp3", "rb")
+    audio_file = open("music.mp3", "rb")
     audio_bytes = audio_file.read()
     st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
