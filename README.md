@@ -1,5 +1,5 @@
 # BMI Calculator and Recommendations
-https://getbmi.streamlit.app/
+https://getbmi.streamlit.app/  
 This is a Streamlit app that calculates Body Mass Index (BMI) and provides exercise, yoga, pranayama, and food recommendations based on the BMI category.
 
 # Introduction
