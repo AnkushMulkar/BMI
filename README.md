@@ -48,8 +48,5 @@ Streamlit
 PIL (Python Imaging Library)
 
 
-# License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 # Note:
 The BMI Calculator and Recommendations app is for informational purposes only and should not be used as a substitute for professional medical advice. Always consult a healthcare professional before making any significant changes to your diet or exercise routine.
